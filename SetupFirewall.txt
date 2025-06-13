@@ -1,0 +1,25 @@
+# Flush all current rules 
+sudo iptables -F 
+sudo iptables -X  
+
+# Allow established and related incoming traffic 
+sudo iptables -A INPUT -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT 
+
+# Allow specific incoming ports (example: HTTP 80, HTTPS 443) 
+sudo iptables -A INPUT -p tcp --dport 80 -j ACCEPT   # HTTP 
+sudo iptables -A INPUT -p tcp --dport 443 -j ACCEPT  # HTTPS 
+
+# Allow all traffic from 172.28.0.0/16 ( internal network ) 
+sudo iptables -A INPUT -s 172.28.0.0/16 -j ACCEPT 
+
+# ewentualnie dla vpn I custom tylko 
+sudo iptables -A INPUT -p tcp -s 172.28.0.200 --dport 22 -j ACCEPT # ssh tylko z custom'a 
+sudo iptables -A INPUT -p tcp -s 172.28.0.201 --dport 22 -j ACCEPT # i z vpn'a  
+
+# Allow loopback interface (localhost) 
+sudo iptables -A INPUT -i lo -j ACCEPT 
+
+# Set default policy to DROP for incoming connections 
+sudo iptables -P INPUT DROP 
+sudo iptables -P FORWARD DROP 
+sudo iptables -P OUTPUT ACCEPT 
