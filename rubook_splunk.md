@@ -47,8 +47,8 @@ cp ./splunkclouduf.spl /tmp/
 ```
 **Cel:** Pierwsze uruchomienie usługi.
 
-**Login:** sc_admin
-**Pass:** CyberFight
+**Login:** sc_admin.
+**Pass:** CyberFight.
 ---
 
 ### 6. Konfiguracja pliku `input.conf`
