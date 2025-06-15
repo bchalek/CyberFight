@@ -13,7 +13,7 @@ cp ./splunkclouduf.spl /tmp/
 echo "#######Start splunk######################"
 /opt/splunkforwarder/bin/splunk start
 echo "#######Utworzenie local.conf#############"
-cat << EOF >/opt/splunkforwarder/etc/system/local/input.conf
+cat << EOF >/opt/splunkforwarder/etc/system/local/inputs.conf
 [monitor:/opt/logs/*]
 disabled=false
 followTail=0
