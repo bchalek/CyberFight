@@ -1,0 +1,107 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "local>coreruleset/renovate-config",
+    "schedule:daily"
+  ],
+  "enabledManagers": [
+    "custom.regex"
+  ],
+  "packageRules": [
+    {
+      "groupName": "all non-major dependencies",
+      "groupSlug": "all-minor-patch",
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "prBodyColumns": [
+        "Package",
+        "Type",
+        "Update",
+        "Change",
+        "Pending"
+      ],
+      "matchPackageNames": [
+        "*"
+      ]
+    },
+    {
+      "groupName": "all major dependencies",
+      "groupSlug": "all-major",
+      "matchUpdateTypes": [
+        "major"
+      ],
+      "prBodyColumns": [
+        "Package",
+        "Type",
+        "Update",
+        "Change",
+        "Pending"
+      ],
+      "matchPackageNames": [
+        "*"
+      ]
+    },
+    {
+      "matchDepNames": [
+        "ModSecurity2"
+      ],
+      "allowedVersions": "/^v2.*/"
+    },
+    {
+      "matchDepNames": [
+        "nginxinc/nginx-unprivileged"
+      ],
+      "allowedVersions": "/^[0-9]+\\.(?:[1-9]\\d*)?[02468]\\.[0-9]+$/"
+    }
+  ],
+  "customManagers": [
+    {
+      "description": "Bake file",
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/^docker-bake\\.hcl$/"
+      ],
+      "matchStrings": [
+        "depName=(?<depName>[^\\s]+)(?:\\s+packageName=(?<packageName>[^\\s]+))?\\s+datasource=(?<datasource>[^\\s]+)\\s+[^\"]+\"(?<currentValue>[^\"]+)\""
+      ]
+    },
+    {
+      "description": "Docs: nginx",
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/^README\\.md$/"
+      ],
+      "matchStrings": [
+        ".*on [Nn]ginx (?<currentValue>\\d+\\.\\d+\\.\\d+)"
+      ],
+      "depNameTemplate": "nginxinc/nginx-unprivileged",
+      "datasourceTemplate": "docker"
+    },
+    {
+      "description": "Docs: httpd",
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/^README\\.md$/"
+      ],
+      "matchStrings": [
+        ".*on Apache (?<currentValue>\\d+\\.\\d+\\.\\d+)"
+      ],
+      "depNameTemplate": "httpd",
+      "datasourceTemplate": "docker"
+    },
+    {
+      "description": "Docs: CRS",
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/^README\\.md$/"
+      ],
+      "matchStrings": [
+        "OWASP CRS (?<currentValue>\\d+\\.\\d+\\.\\d+)"
+      ],
+      "depNameTemplate": "coreruleset/coreruleset",
+      "datasourceTemplate": "github-releases"
+    }
+  ]
+}
