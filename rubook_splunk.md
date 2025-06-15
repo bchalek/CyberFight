@@ -47,13 +47,13 @@ cp ./splunkclouduf.spl /tmp/
 ```
 **Cel:** Pierwsze uruchomienie usługi.
 
-Login: sc_admin
-Pass: CyberFight
+**Login:** sc_admin
+**Pass:** CyberFight
 ---
 
 ### 6. Konfiguracja pliku `input.conf`
 ```bash
-cat << EOF >/opt/splunkforwarder/etc/system/local/input.conf
+cat << EOF >/opt/splunkforwarder/etc/system/local/inputs.conf
 [monitor:/opt/logs/*]
 disabled=false
 followTail=0
