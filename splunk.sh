@@ -12,9 +12,7 @@ echo "############Przekopiowanie spl do tmp####"
 cp ./splunkclouduf.spl /tmp/
 echo "#######Start splunk######################"
 /opt/splunkforwarder/bin/splunkd
-sleep 30
-echo "###########Instalacja spki###############"
-/opt/splunkforwarder/bin/splunk install app /tmp/splunkclouduf.spl
+sleep 60
 
 echo "#######Utworzenie local.conf#############"
 cat << EOF >/opt/splunkforwarder/etc/system/local/input.conf
@@ -28,6 +26,11 @@ EOF
 
 echo " ######Restart splunk ###################"
 /opt/splunkforwarder/bin/splunk restart
-sleep 10
-/opt/splunkforwarder/bin/spluk list forward-server
+#sleep 30
+echo "###########Instalacja spki###############"
+/opt/splunkforwarder/bin/splunk install app /tmp/splunkclouduf.spl
+echo " ######Restart splunk ###################"
+/opt/splunkforwarder/bin/splunk restart
 
+sleep 10
+/opt/splunkforwarder/bin/splunk list forward-server
