@@ -1,4 +1,7 @@
 #!/bin/bash
+echo "################Instalacja git, curl####"
+apt-get update
+apt-get install git curl -y
 echo "##############Instalacja#################"
 dpkg -i splunkforwarder-9.4.3-237ebbd22314-linux-amd64.deb
 echo "######Utworzenie katalogu /opt/logs######"
@@ -9,6 +12,7 @@ echo "############Przekopiowanie spl do tmp####"
 cp ./splunkclouduf.spl /tmp/
 echo "#######Start splunk######################"
 #/opt/splunkforwarder/bin/splunkd
+sleep 10
 echo "###########Instalacja spki###############"
 /opt/splunkforwarder/bin/splunk install app /tmp/splunkclouduf.spl
 
