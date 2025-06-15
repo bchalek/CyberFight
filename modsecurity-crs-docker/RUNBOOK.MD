@@ -96,3 +96,11 @@ docker compose down
 ---
 
 > Dokument ten opisuje podstawowe kroki do integracji ModSecurity z aplikacją działającą w Dockerze oraz konfiguracji logowania dla SPLUNKa.
+
+```bash
+#
+# Wyłączenie konkretnej reguły CRS, bo generuje fałszywe alarmy
+#
+SecRuleRemoveById 981176
+```
+
