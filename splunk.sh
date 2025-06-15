@@ -21,7 +21,7 @@ initCrcLenght=65535
 index=mods
 source=mods
 EOF
-
+sleep 30
 echo "###########Instalacja spki###############"
 /opt/splunkforwarder/bin/splunk install app /tmp/splunkclouduf.spl
 echo " ######Restart splunk ###################"
