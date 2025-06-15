@@ -90,6 +90,18 @@ EOF
 
 ---
 
+### 10. Weryfikacja w konsoli splunk
+```bash
+
+https://prd-p-tws40.splunkcloud.com/ 
+Login: sc_admin 
+Pass: CyberFight 
+
+```
+**Cel:** Sprawdzenie, czy forwardery danych są aktywne.
+
+---
+
 ## Możliwe problemy i rozwiązania
 
 | Problem | Możliwe przyczyny | Rozwiązanie |
