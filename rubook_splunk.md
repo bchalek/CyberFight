@@ -98,7 +98,7 @@ Login: sc_admin
 Pass: CyberFight 
 
 ```
-**Cel:** Sprawdzenie, czy forwardery danych są aktywne.
+**Cel:** Sprawdzenie, czy  dane trafiają do konsoli.
 
 ---
 
