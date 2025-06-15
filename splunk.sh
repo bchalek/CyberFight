@@ -11,9 +11,7 @@ chmod 777 /opt/logs
 echo "############Przekopiowanie spl do tmp####"
 cp ./splunkclouduf.spl /tmp/
 echo "#######Start splunk######################"
-/opt/splunkforwarder/bin/splunkd
-sleep 60
-
+/opt/splunkforwarder/bin/splunk start
 echo "#######Utworzenie local.conf#############"
 cat << EOF >/opt/splunkforwarder/etc/system/local/input.conf
 [monitor:/opt/logs/*]
@@ -24,13 +22,8 @@ index=mods
 source=mods
 EOF
 
-echo " ######Restart splunk ###################"
-/opt/splunkforwarder/bin/splunk restart
-#sleep 30
 echo "###########Instalacja spki###############"
 /opt/splunkforwarder/bin/splunk install app /tmp/splunkclouduf.spl
 echo " ######Restart splunk ###################"
 /opt/splunkforwarder/bin/splunk restart
-
-sleep 10
 /opt/splunkforwarder/bin/splunk list forward-server
