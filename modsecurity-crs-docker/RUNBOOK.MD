@@ -97,6 +97,10 @@ docker compose down
 
 > Dokument ten opisuje podstawowe kroki do integracji ModSecurity z aplikacją działającą w Dockerze oraz konfiguracji logowania dla SPLUNKa.
 
+Wyjątki dodajemy do plików:
+RESPONSE-999-EXCLUSION-RULES-AFTER-CRS.conf
+REQUEST-900-EXCLUSION-RULES-BEFORE-CRS.conf
+
 ```bash
 #
 # Wyłączenie konkretnej reguły CRS, bo generuje fałszywe alarmy
