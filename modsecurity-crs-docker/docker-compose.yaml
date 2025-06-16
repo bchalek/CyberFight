@@ -13,9 +13,9 @@ x-defaults1: &flask-settings
     # CRS Variables
     #############################################
     # Paranoia Level
-    PARANOIA: 1
+    PARANOIA: 3
     # Replaces PARANOIA as of CRS 4
-    BLOCKING_PARANOIA: 1
+    BLOCKING_PARANOIA: 2
     # Inbound and Outbound Anomaly Score Threshold
     ANOMALY_INBOUND: 5
     ANOMALY_OUTBOUND: 4
@@ -94,9 +94,9 @@ x-defaults: &juiceshop-settings
     # CRS Variables
     #############################################
     # Paranoia Level
-    PARANOIA: 1
+    PARANOIA: 3
     # Replaces PARANOIA as of CRS 4
-    BLOCKING_PARANOIA: 1
+    BLOCKING_PARANOIA: 2
     # Inbound and Outbound Anomaly Score Threshold
     ANOMALY_INBOUND: 5
     ANOMALY_OUTBOUND: 4
