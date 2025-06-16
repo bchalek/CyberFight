@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Output file
+OUTPUT_FILE="startup_commands.txt"
+# Clear file at start
+> "$OUTPUT_FILE"
+
 # Get all running container IDs
 CONTAINERS=$(docker ps -q)
 
@@ -23,7 +28,16 @@ for CONTAINER in $CONTAINERS; do
   ENTRYPOINT=$(docker inspect --format='{{if .Config.Entrypoint}}--entrypoint "{{join .Config.Entrypoint " "}}"{{end}}' "$CONTAINER")
   CMD=$(docker inspect --format='{{if .Config.Cmd}}{{range .Config.Cmd}}"{{.}}" {{end}}{{end}}' "$CONTAINER")
 
+  # Compose full command
+  FULL_COMMAND="docker run -d --name $NAME $ENV_VARS $PORTS $VOLUMES $RESTART $NETWORK $ENTRYPOINT $IMAGE $CMD"
+
+  # Output to console
   echo ""
-  echo "docker run -d --name $NAME $ENV_VARS $PORTS $VOLUMES $RESTART $NETWORK $ENTRYPOINT $IMAGE $CMD"
+  echo "$FULL_COMMAND"
   echo ""
+
+  # Save to file
+  echo "$FULL_COMMAND" >> "$OUTPUT_FILE"
 done
+
+echo "All startup commands saved to $OUTPUT_FILE"
