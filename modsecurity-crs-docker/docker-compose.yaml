@@ -13,9 +13,9 @@ x-defaults1: &flask-settings
     # CRS Variables
     #############################################
     # Paranoia Level
-    PARANOIA: 1
+    PARANOIA: 3
     # Replaces PARANOIA as of CRS 4
-    BLOCKING_PARANOIA: 1
+    BLOCKING_PARANOIA: 2
     # Inbound and Outbound Anomaly Score Threshold
     ANOMALY_INBOUND: 5
     ANOMALY_OUTBOUND: 4
@@ -40,7 +40,7 @@ x-defaults1: &flask-settings
     #MODSEC_DEBUG_LOG: "/dev/stdout"
     #MODSEC_DEBUG_LOGLEVEL: "3" 
     MODSEC_AUDIT_ENGINE: "On"
-    MODSEC_AUDIT_LOG_PARTS: "ABCFHZ"
+    MODSEC_AUDIT_LOG_PARTS: "ABCDEFHIJKZ"
     MODSEC_AUDIT_STORAGE_DIR: "/opt/logs/"
     MODSEC_AUDIT_LOG: "/opt/logs/flask.log"
 
@@ -94,9 +94,9 @@ x-defaults: &juiceshop-settings
     # CRS Variables
     #############################################
     # Paranoia Level
-    PARANOIA: 1
+    PARANOIA: 3
     # Replaces PARANOIA as of CRS 4
-    BLOCKING_PARANOIA: 1
+    BLOCKING_PARANOIA: 2
     # Inbound and Outbound Anomaly Score Threshold
     ANOMALY_INBOUND: 5
     ANOMALY_OUTBOUND: 4
@@ -121,7 +121,7 @@ x-defaults: &juiceshop-settings
     #MODSEC_DEBUG_LOG: "/dev/stdout"
     #MODSEC_DEBUG_LOGLEVEL: "3" 
     MODSEC_AUDIT_ENGINE: "On"
-    MODSEC_AUDIT_LOG_PARTS: "ABCFHZ"
+    MODSEC_AUDIT_LOG_PARTS: "ABCDEFHIJKZ"
     MODSEC_AUDIT_STORAGE_DIR: "/opt/logs/"
     MODSEC_AUDIT_LOG: "/opt/logs/juiceshop.log"
 
