@@ -3,13 +3,13 @@
 
 PCAP_DIR="/opt/logs/pcaps"
 CSV_DIR="/opt/logs/tcpdump"
-PCAP_PREFIX="eth2_dump"
+PCAP_PREFIX="eth1_dump"
 
 # Create necessary directories
 mkdir -p "$PCAP_DIR" "$CSV_DIR"
 
 # Start tshark in background to dump rotating pcaps
-tshark -i eth2 -b duration:120 -b files:10 -w "$PCAP_DIR/$PCAP_PREFIX" &
+tshark -i eth1 -b duration:120 -b files:10 -w "$PCAP_DIR/$PCAP_PREFIX" &
 TSHARK_PID=$!
 
 # Require inotifywait to monitor file changes
