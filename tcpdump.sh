@@ -1,7 +1,7 @@
 #!/bin/bash
 
-PCAP_DIR="/var/log/pcaps"
-CSV_DIR="/var/log/tcpdump"
+PCAP_DIR="/opt/logs/pcaps"
+CSV_DIR="/opt/logs/tcpdump"
 PCAP_PREFIX="eth2_dump"
 
 # Create necessary directories
