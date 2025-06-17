@@ -20,6 +20,13 @@ followTail=0
 initCrcLenght=65535
 index=mods
 source=mods
+
+[monitor:/opt/logs/tcpdump/*]
+disabled=false
+followTail=0
+initCrcLenght=65535
+index=tcpdump
+source=mods
 EOF
 sleep 40
 echo "###########Instalacja spki###############"
