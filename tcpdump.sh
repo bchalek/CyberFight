@@ -1,4 +1,5 @@
 #!/bin/bash
+# sudo apt install inotify-tools
 
 PCAP_DIR="/opt/logs/pcaps"
 CSV_DIR="/opt/logs/tcpdump"
